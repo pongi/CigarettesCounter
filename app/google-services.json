@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "861652789599",
+    "firebase_url": "https://cigarettescounter.firebaseio.com",
+    "project_id": "cigarettescounter",
+    "storage_bucket": "cigarettescounter.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:861652789599:android:bf6f5f351df8f152",
+        "android_client_info": {
+          "package_name": "com.pongi.cigarettescounter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "861652789599-efjanie75rg8am3v8eaqokr9g52h88on.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAFrPDZvyjv3KaypQ9DL26gAOeSk6J2yII"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
