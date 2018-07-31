@@ -44,7 +44,7 @@ class MainActivity : AppCompatActivity() {
         adView.loadAd(adRequest)
 
         // FABの設定
-        fab.setOnClickListener { view ->
+        fab.setOnClickListener {
             //            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
 //                    .setAction("Action", null).show()
             if (fabOpenState) hideFAB() else expandFAB()
