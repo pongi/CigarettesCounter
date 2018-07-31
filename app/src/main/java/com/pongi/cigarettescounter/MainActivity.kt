@@ -1,5 +1,6 @@
 package com.pongi.cigarettescounter
 
+import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.Menu
@@ -8,6 +9,7 @@ import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.FrameLayout
 import com.google.android.gms.ads.AdRequest
+import com.pongi.cigarettescounter.viewmodel.MainViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fab_layout.*
 
@@ -28,6 +30,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
+
+        // init ViewModel
+        ViewModelProviders.of(this).get(MainViewModel::class.java)
 
         //Animations
         showFab1 = AnimationUtils.loadAnimation(getApplication(), R.anim.fab1_show);
@@ -50,6 +55,11 @@ class MainActivity : AppCompatActivity() {
             if (fabOpenState) hideFAB() else expandFAB()
 
         }
+
+        supportFragmentManager.beginTransaction()
+                .replace(R.id.fragment, MainActivityFragment())
+                .addToBackStack("fragment")
+                .commit()
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -75,6 +85,12 @@ class MainActivity : AppCompatActivity() {
         fab1.setLayoutParams(layoutParams1)
         fab1.startAnimation(showFab1)
         fab1.setClickable(true)
+        fab1.setOnClickListener {
+            supportFragmentManager.beginTransaction()
+                    .replace(R.id.fragment, ListFragment())
+                    .addToBackStack("fragment")
+                    .commit()
+        }
 
         //Floating Action Button 2
         val layoutParams2 = fab2.layoutParams as FrameLayout.LayoutParams

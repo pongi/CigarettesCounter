@@ -7,5 +7,5 @@ import com.pongi.cigarettescounter.entity.SmokingLog
 
 @Database(entities = arrayOf(SmokingLog::class), version = 1)
 abstract class DataBase : RoomDatabase() {
-    abstract fun addressDao(): SmokingLogDao
+    abstract fun smokingLogDao(): SmokingLogDao
 }

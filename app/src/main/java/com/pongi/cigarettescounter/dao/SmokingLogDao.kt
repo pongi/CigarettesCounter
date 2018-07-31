@@ -1,5 +1,6 @@
 package com.pongi.cigarettescounter.dao
 
+import android.arch.lifecycle.LiveData
 import android.arch.persistence.room.*
 import com.pongi.cigarettescounter.entity.SmokingLog
 
@@ -9,7 +10,7 @@ interface SmokingLogDao {
     fun createLog(log: SmokingLog)
 
     @Query("SELECT * FROM SmokingLog")
-    fun findAllLog(): List<SmokingLog>
+    fun getLog(): LiveData<List<SmokingLog>>
 
     @Update
     fun updateLog(log: SmokingLog)
