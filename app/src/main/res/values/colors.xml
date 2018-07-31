@@ -6,4 +6,6 @@
     <color name="colorPrimary">#FFFFFF</color>
     <color name="colorPrimaryDark">#808080</color>
     <color name="colorAccent">#FA9585</color>
+
+    <color name="colorFAB">#00A000</color>
 </resources>
