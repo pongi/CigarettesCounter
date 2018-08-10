@@ -3,10 +3,13 @@ package com.pongi.cigarettescounter.viewmodel
 import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.Transformations
 import android.arch.lifecycle.ViewModel
+import android.util.Log
 import com.pongi.cigarettescounter.MyApplication
 import com.pongi.cigarettescounter.entity.SmokingLog
+import kotlinx.coroutines.experimental.CommonPool
 import kotlinx.coroutines.experimental.android.UI
 import kotlinx.coroutines.experimental.async
+import kotlinx.coroutines.experimental.launch
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -23,12 +26,8 @@ class MainViewModel: ViewModel() {
 
     var smokingLog = MyApplication.database.smokingLogDao().getLog()
 
-    fun logging(log: SmokingLog) {
-        val dao = MyApplication.database.smokingLogDao()
-        async(UI) {
-            dao.createLog(log)
-        }
+    fun logging(log: SmokingLog) = async(CommonPool) {
+        MyApplication.database.smokingLogDao().createLog(log)
+        Log.d("sync", "createdb")
     }
-
-
 }

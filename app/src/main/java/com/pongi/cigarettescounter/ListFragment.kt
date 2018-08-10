@@ -5,7 +5,6 @@ import android.arch.lifecycle.ViewModelProviders
 import android.content.Context
 import android.os.Bundle
 import android.support.v4.app.Fragment
-import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
@@ -36,7 +35,7 @@ class ListFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-        val view = inflater.inflate(R.layout.fragment_list_list, container, false)
+        val view = inflater.inflate(R.layout.fragment_list, container, false)
 
         activity?.let { activity ->
             val viewModel = ViewModelProviders.of(activity).get(MainViewModel::class.java)
@@ -45,21 +44,13 @@ class ListFragment : Fragment() {
                     // Set the adapter
                     if (view is RecyclerView) {
                         with(view) {
-
-                            val array = ArrayList<SmokingLog>()
-                            for ( i in 1..59) {
-                                array.add(SmokingLog("2018/08/01 10:00:0${i}", count = 1))
-                            }
-
                             layoutManager = LinearLayoutManager(context)
-                            adapter = MyListRecyclerViewAdapter(array, listener)
-
+                            adapter = MyListRecyclerViewAdapter(it, listener)
                         }
                     }
                 }
-            });
+            })
         }
-
         return view
     }
 
