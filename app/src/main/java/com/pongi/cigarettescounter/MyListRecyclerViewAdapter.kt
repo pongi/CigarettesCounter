@@ -9,13 +9,8 @@ import android.widget.TextView
 import com.pongi.cigarettescounter.ListFragment.OnListFragmentInteractionListener
 import com.pongi.cigarettescounter.entity.SmokingLog
 
-import kotlinx.android.synthetic.main.fragment_list.view.*
+import kotlinx.android.synthetic.main.item_list.view.*
 
-/**
- * [RecyclerView.Adapter] that can display a [DummyItem] and makes a call to the
- * specified [OnListFragmentInteractionListener].
- * TODO: Replace the implementation with code for your data type.
- */
 class MyListRecyclerViewAdapter(
         private val mValues: List<SmokingLog>,
         private val mListener: OnListFragmentInteractionListener?)
@@ -34,7 +29,7 @@ class MyListRecyclerViewAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context)
-                .inflate(R.layout.fragment_list, parent, false)
+                .inflate(R.layout.item_list, parent, false)
         return ViewHolder(view)
     }
 
