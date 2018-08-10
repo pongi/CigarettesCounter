@@ -1,6 +1,7 @@
 package com.pongi.cigarettescounter
 
 import android.arch.lifecycle.ViewModelProviders
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.Menu
@@ -50,15 +51,11 @@ class MainActivity : AppCompatActivity() {
 
         // FABの設定
         fab.setOnClickListener {
-            //            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                    .setAction("Action", null).show()
             if (fabOpenState) hideFAB() else expandFAB()
-
         }
 
         supportFragmentManager.beginTransaction()
                 .replace(R.id.fragment, MainActivityFragment())
-                .addToBackStack("fragment")
                 .commit()
     }
 
@@ -86,10 +83,7 @@ class MainActivity : AppCompatActivity() {
         fab1.startAnimation(showFab1)
         fab1.setClickable(true)
         fab1.setOnClickListener {
-            supportFragmentManager.beginTransaction()
-                    .replace(R.id.fragment, ListFragment())
-                    .addToBackStack("fragment")
-                    .commit()
+            startActivity(Intent(this, ListActivity::class.java))
         }
 
         //Floating Action Button 2
