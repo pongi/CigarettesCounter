@@ -1,15 +1,19 @@
 package com.pongi.cigarettescounter
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import kotlinx.android.synthetic.main.activity_list.*
+import android.support.design.widget.Snackbar
+import android.support.v7.app.AppCompatActivity
 
-class ListActivity : AppCompatActivity() {
+import kotlinx.android.synthetic.main.activity_chart.*
+
+class ChartActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_list)
+        setContentView(R.layout.activity_chart)
         setSupportActionBar(toolbar)
+
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
+
 }

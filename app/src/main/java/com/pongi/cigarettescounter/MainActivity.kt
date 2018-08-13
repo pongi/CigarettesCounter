@@ -9,6 +9,7 @@ import android.view.MenuItem
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.FrameLayout
+import android.widget.Toast
 import com.google.android.gms.ads.AdRequest
 import com.pongi.cigarettescounter.viewmodel.MainViewModel
 import kotlinx.android.synthetic.main.activity_main.*
@@ -93,6 +94,9 @@ class MainActivity : AppCompatActivity() {
         fab2.layoutParams = layoutParams2
         fab2.startAnimation(showFab2)
         fab2.isClickable = true
+        fab2.setOnClickListener {
+            startActivity(Intent(this, ChartActivity::class.java))
+        }
 
         //Floating Action Button 3
         val layoutParams3 = fab3.layoutParams as FrameLayout.LayoutParams
@@ -101,7 +105,9 @@ class MainActivity : AppCompatActivity() {
         fab3.layoutParams = layoutParams3
         fab3.startAnimation(showFab3)
         fab3.isClickable = true
-
+        fab3.setOnClickListener {
+            Toast.makeText(this, "Comming soon...", Toast.LENGTH_SHORT).show()
+        }
         fabOpenState = true
     }
 
